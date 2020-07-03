@@ -3,9 +3,35 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+        <style type="text/css">
+            h1{
+                font-size: 120%;
+                font-family: Verdana, Arial, sans-serif;
+                color: dimgray;
+            }
+            A:link{text-decoration: none;}
+            A:visited{text-decoration: none;}
+            A:active{text-decoration: none;}
+            A:hover{
+                font-size: 18px;
+                font-weight: bold;
+                color: darkslategrey;
+            }
+        </style>
+        {% endblock %}
     </head>
     <body>
+        <div>
+            <a href = "{{url("home")}}">Request</a>
+            <a href = "{{url("students_index")}}">Student</a>
+            <a href = "{{url("exams_index")}}">Exams</a>
+            <a href = "{{url("lecturer_index")}}">Lecturer</a>
+            <a href = "{{url("subjects_index")}}">Subjects</a>
+            <a href = "{{url("subj_lect_index")}}">SubjLect</a>
+            <a href = "{{url("universities_index")}}">Universities</a>
+            <a href = "{{url("app_login")}}">Log in</a>
+        </div>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

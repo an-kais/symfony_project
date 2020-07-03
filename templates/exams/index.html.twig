@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Exams index{% endblock %}
+
+{% block body %}
+    <h1>Exams index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Mark</th>
+                <th>Exam_date</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for exam in exams %}
+            <tr>
+                <td>{{ exam.id }}</td>
+                <td>{{ exam.mark }}</td>
+                <td>{{ exam.examDate ? exam.examDate|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('exams_show', {'id': exam.id}) }}">show</a>
+                    <a href="{{ path('exams_edit', {'id': exam.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('exams_new') }}">Create new</a>
+{% endblock %}

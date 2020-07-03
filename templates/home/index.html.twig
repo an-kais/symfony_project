@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Request{% endblock %}
+
+{% block body %}
+
+    {% for s in stud  %}
+
+        {% for l in lect %}
+
+            {% if s.name == l.name %}
+                {{ s.id }} | {{ s.surname }} | {{ l.id }} | {{ l.surname }} || {{ l.name }}<br>
+
+            {% endif %}
+
+        {% endfor%}
+
+    {% endfor %}
+
+{% endblock %}

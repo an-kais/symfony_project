@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New SubjLect{% endblock %}
+
+{% block body %}
+    <h1>Create new SubjLect</h1>
+
+    {{ include('subj_lect/_form.html.twig') }}
+
+    <a href="{{ path('subj_lect_index') }}">back to list</a>
+{% endblock %}

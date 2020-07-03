@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SubjLect index{% endblock %}
+
+{% block body %}
+    <h1>SubjLect index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for subj_lect in subj_lects %}
+            <tr>
+                <td>{{ subj_lect.id }}</td>
+                <td>
+                    <a href="{{ path('subj_lect_show', {'id': subj_lect.id}) }}">show</a>
+                    <a href="{{ path('subj_lect_edit', {'id': subj_lect.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('subj_lect_new') }}">Create new</a>
+{% endblock %}

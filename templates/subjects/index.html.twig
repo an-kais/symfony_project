@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Subjects index{% endblock %}
+
+{% block body %}
+    <h1>Subjects index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Subj_name</th>
+                <th>Hour</th>
+                <th>Kurs</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for subject in subjects %}
+            <tr>
+                <td>{{ subject.id }}</td>
+                <td>{{ subject.subjName }}</td>
+                <td>{{ subject.hour }}</td>
+                <td>{{ subject.kurs }}</td>
+                <td>
+                    <a href="{{ path('subjects_show', {'id': subject.id}) }}">show</a>
+                    <a href="{{ path('subjects_edit', {'id': subject.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('subjects_new') }}">Create new</a>
+{% endblock %}
