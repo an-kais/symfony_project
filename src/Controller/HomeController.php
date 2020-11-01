@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controller;
 
 use http\Env\Request;
@@ -16,7 +15,7 @@ class HomeController extends AbstractController
      * @Route("", name="home")
      */
     public function query(){
-
+        
 
         $query = $this->getDoctrine()->getManager();
         $query = $query->createQueryBuilder();
@@ -34,6 +33,14 @@ class HomeController extends AbstractController
             ->where('node1.id > 1');
 
         $lect = $query1->getQuery()->getResult();
+
+        dump($_ENV['APP_SECRET']);//вывод переменной окружения
+         dump($_SERVER['APP_ENV']);//аналогично
+        //делаем проверку
+        //if ($_ENV['APP_ENV'] == 'prod'){
+            //dump('Отладка');
+        //}
+
 
         return $this->render('home/index.html.twig', [
             'stud' => $stud,
