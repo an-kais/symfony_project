@@ -8,11 +8,12 @@ use App\Repository\StudentsRepository;
 use App\Repository\LecturerRepository;
 use App\Repository\SubjLectRepository;
 use App\Repository\ExamsRepository;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class HomeController extends AbstractController
 {
     /**
-     * @Route("", name="home")
+     * @Route("/", name="home")
      */
     public function query(){
         
@@ -35,7 +36,7 @@ class HomeController extends AbstractController
         $lect = $query1->getQuery()->getResult();
 
        // dump($_ENV['APP_SECRET']);//вывод переменной окружения
-         dump($_SERVER['APP_ENV']);//аналогично
+         //dump($_SERVER['APP_ENV']);//аналогично
         //делаем проверку
         //if ($_ENV['APP_ENV'] == 'prod'){
             //dump('Отладка');
@@ -46,6 +47,13 @@ class HomeController extends AbstractController
             'stud' => $stud,
             'lect' => $lect,
         ]);
+    }
+
+    /**
+     * @Route("/test", name="test")
+     */
+    public function test(){
+        return new JsonResponse('Hello world');
     }
 
 
