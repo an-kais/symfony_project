@@ -34,7 +34,7 @@ class HomeController extends AbstractController
 
         $lect = $query1->getQuery()->getResult();
 
-        dump($_ENV['APP_SECRET']);//вывод переменной окружения
+       // dump($_ENV['APP_SECRET']);//вывод переменной окружения
          dump($_SERVER['APP_ENV']);//аналогично
         //делаем проверку
         //if ($_ENV['APP_ENV'] == 'prod'){
